@@ -13,9 +13,9 @@ def a_plus_abs_b(a, b):
     ['return h(a, b)']
     """
     if b >= 0:
-        h = _____
+        h = a + b
     else:
-        h = _____
+        h = a + (-b)
     return h(a, b)
 
 
@@ -37,7 +37,13 @@ def two_of_three(x, y, z):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(two_of_three)).body[0].body]
     ['Expr', 'Return']
     """
-    return _____
+    if x > y and x > z:
+        result = y*y+z*z
+    elif y > x and y > z:
+        result = x*x + z*z
+    else:
+        result = x*x + y*y
+    return result
 
 
 def largest_factor(x):
@@ -51,6 +57,12 @@ def largest_factor(x):
     1
     """
     "*** YOUR CODE HERE ***"
+    factor = 1
+    for i in range (1, x):
+        if x%i == 0:
+            factor = i
+
+    return factor
 
 
 def if_function(condition, true_result, false_result):
@@ -96,12 +108,15 @@ def with_if_function():
 
 def cond():
     "*** YOUR CODE HERE ***"
+    return True
 
 def true_func():
     "*** YOUR CODE HERE ***"
+    return print(47)
 
 def false_func():
     "*** YOUR CODE HERE ***"
+    return print(42)
 
 
 def hailstone(x):
@@ -120,4 +135,16 @@ def hailstone(x):
     7
     """
     "*** YOUR CODE HERE ***"
+    a = 0
+    while x!=1:
+        if x%2 == 0:
+            x = x/2
+            a = a+1
+        else:
+            x = x/3+1
+            a = a+1
+    a = a+1
+    return a
+
+
 
